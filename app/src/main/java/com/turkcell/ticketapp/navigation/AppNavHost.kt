@@ -15,7 +15,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.turkcell.core.domain.AuthRepository
+import com.turkcell.core.domain.auth.AuthRepository
 import com.turkcell.ticketapp.screen.LoginScreen
 import org.koin.compose.koinInject
 

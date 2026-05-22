@@ -1,11 +1,13 @@
 package com.turkcell.data.di
 
-import com.turkcell.core.domain.AuthRepository
+import com.turkcell.core.domain.auth.AuthRepository
+import com.turkcell.core.domain.event.TicketRepository
 import com.turkcell.data.local.TokenStore
 import com.turkcell.data.network.AuthInterceptor
 import com.turkcell.data.network.TokenAuthenticator
 import com.turkcell.data.remote.AuthApi
 import com.turkcell.data.repository.AuthRepositoryImpl
+import com.turkcell.data.repository.TicketRepositoryImpl
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -104,6 +106,9 @@ val dataModule = module {
         )
     }
 
+    single<TicketRepository> {
+        TicketRepositoryImpl(eventApi = get())
+    }
     // factory -> Her çağırıldığı noktada yeni instance üretir. Her fonksiyon için birer örnek
 
     // scoped -> Class -> tüm fonksiyonlarına 1 örnek
